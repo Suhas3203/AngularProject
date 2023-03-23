@@ -1,0 +1,129 @@
+
+input[type="text"],
+input[type="password"],
+button {
+    width        : 100%;
+    border       : none;
+    padding      : 10px 24px;
+    color        : #faf7f7;
+    outline      : none;
+    border-radius: 25px;
+}
+
+body {
+  font-family     : "Open Sans", sans-serif;
+  min-height      : 100vh;
+  width           : 100%;
+  font-size       : 14px;
+  background-color: #262720;
+  color           : #fff;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+}
+
+.login-container {
+    max-width          : 400px;
+    padding            : 24px 24px;
+    border-radius      : 4px;
+    overflow           : hidden;
+    margin: 30px auto;
+    background-size    : cover;
+    background-position: center;
+    background-repeat  : no-repeat;
+    position           : relative;
+    box-shadow         : 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-container::before {
+    content         : "";
+    position        : absolute;
+    top             : 0;
+    left            : 0;
+    width           : 100%;
+    height          : 100%;
+    background-color: rgba(35, 52, 97, 0.9);
+}
+
+.title {
+    text-transform: uppercase;
+    font-size     : 1.2;
+    display       : inline-block;
+    letter-spacing: 1px;
+    color: #fff;
+    padding       : 4px 0;
+    position      : relative;
+    border-bottom : 2px solid #00c2e0;
+    margin-bottom : 20px;
+}
+
+.welcome-message {
+    position     : relative;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    z-index      : 1;
+    position     : relative;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    background-color: #015b8f;
+}
+
+.form-control label {
+    display       : block;
+    color         : rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    font-size     : 0.7em;
+    letter-spacing: 0.5px;
+    margin-bottom : 8px;
+}
+
+.form-control input {
+    background-color: rgba(255, 255, 255, 0.4);
+    letter-spacing  : 0.5px;
+    font-size       : 1.1em;
+}
+
+.keep-logged {
+    color        : rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.keep-logged label {
+    padding-left: 8px;
+}
+
+button[type="submit"] {
+    text-align      : center;
+    text-transform  : uppercase;
+    letter-spacing  : 1.5px;
+    font-size       : 1.2em;
+    background-color: #1f82bb;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b9bd3;
+}
+
+.additional-action {
+    position       : relative;
+    width          : 100%;
+    display        : flex;
+    justify-content: space-between;
+    color          : rgb(255, 255, 255);
+    margin-bottom  : 8px;
+    cursor         : pointer;
+    letter-spacing : 0.3px;
+    
+}
+
+.additional-action p:hover {
+    color: rgba(255, 255, 255, 0.8);
+}

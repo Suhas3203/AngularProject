@@ -1,0 +1,146 @@
+<div class="login-container">
+  <form class="example-form" [formGroup]="registrationData" (ngSubmit)="submitAllData()" [action]="'signIn'">
+    <!-- #login="ngForm" -->
+    <h3><strong> Register/Sign Up </strong></h3>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+
+        <td colspan="2"> Enter Your Email Address :
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="emailFormControl" placeholder="Ex. pat@example.com"
+              name="emailId" ngModel>
+
+            <mat-error
+              *ngIf="registrationData.controls['emailFormControl'].hasError('email') || registrationData.controls['emailFormControl'].hasError('pattern')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="registrationData.controls['emailFormControl'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td> Enter Your First Name :
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="inputFormControlFname" placeholder="Ex. John" name="fname" ngModel>
+            <mat-hint align="end" *ngIf="!firstNameInput.value" >First Name with 1st character in Uppercase </mat-hint>
+            <mat-error *ngIf="registrationData.controls['inputFormControlFname'].hasError('required')">
+              Field is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="registrationData.controls['inputFormControlFname'].hasError('pattern')">
+              First letter should be in <strong>Uppercase</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td> Enter Your Last Name :
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name </mat-label>
+            <input matInput formControlName="inputFormControlLname" placeholder="Ex. Smith" name="lname" ngModel>
+            <mat-hint align="end" *ngIf="!lastNameInput.value">Last Name with 1st character in Uppercase </mat-hint>
+            <mat-error *ngIf="registrationData.controls['inputFormControlLname'].hasError('required')">
+              Field is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="registrationData.controls['inputFormControlLname'].hasError('pattern')">
+              First letter should be in <strong>Uppercase</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td> Enter Your Username : </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Enter your username" name="userN" formControlName="username"
+              (click)="toggleHints()" ngModel>
+            <!-- " -->
+            <mat-hint align="end" *ngIf="!usernameInput.value">  Enter Proper Username 
+              <ul [hidden]="hints">
+                
+                <li> Should be added Uppercase characters, Lowercase characters, Numbers </li>
+
+              </ul>
+            </mat-hint>
+            <mat-error *ngIf="registrationData.controls['username'].hasError('required')">
+              This Field is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="registrationData.controls['username'].hasError('pattern')">
+              Input isn't matching with pattern required
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <!-- [(ngModel)] ="username" -->
+      </tr>
+      <tr>
+        <td>
+          Enter Password :
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password"
+              (click)="toggleHintsForPassword()" ngModel> <!----  pattern="^[A-Za-z0-9!@#$%^&*]{8,15}"  -->
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-hint align="end" *ngIf="!passwordInput.value">Enter your password
+              <ul [hidden]="hintsForPassword">
+                <li> Minimum length Should be 8 characters </li>
+                <li> Should contain Uppercase characters, Lowercase characters, Numbers and Symbols </li>
+              </ul>
+            </mat-hint>
+            <mat-error
+              *ngIf="registrationData.controls['password'].hasError('required') || registrationData.controls['password'].hasError('minlength')">
+              Password is <strong>required</strong> with minimum <strong>8</strong> characters
+            </mat-error>
+            <mat-error *ngIf="registrationData.controls['password'].hasError('pattern')">
+              
+              <ul class="list-group">
+                <li> Password is not correctly inputed </li>
+                <li> Minimum length should be <strong>8</strong> letters </li>
+                <li> Must add Atleast One Uppercase, One Lowercase, One Number And One Symbol </li>
+              </ul>
+            
+            </mat-error>
+          </mat-form-field><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Confirm Your Password :
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Confirm Password" [type]="confHide ? 'password' : 'text'"
+              formControlName="confirmPassword" ngModel>
+            <mat-icon matSuffix (click)="confHide = !confHide">{{confHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-hint align="end" *ngIf="!passwordInput.value">Enter matching password with above</mat-hint>
+            <mat-error
+              *ngIf="registrationData.controls['confirmPassword'].hasError('required') || registrationData.controls['confirmPassword'].hasError('MustMatch')">
+              This is not correctly matched
+            </mat-error>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          <button mat-raised-button color="warn" href="#" type="submit">Cancel</button>
+        </td>
+        <td>
+
+          <button mat-raised-button color="primary" [disabled]="!registrationData.valid" type="submit">
+            Register </button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,32 @@
+<div class="login-container">
+    <p class="title">Login</p>
+    <p class="welcome-message">Welcome to the private area. Please, provide login credential to proceed and have access to all our services</p>
+
+    <form class="login-form">
+        <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" name="username" [(ngModel)]="username" id="username"  required>
+        </div>
+        
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" [(ngModel)]="password" id="password" required>
+        </div>
+
+        <div class="keep-logged">
+            <input type="checkbox" name="keepSigned" id="keepSigned" required>
+            <label for="keepSigned">Keep me logged in</label>
+        </div>
+        <!-- (click)="toggleToShowComponent()" -->
+       
+        <button type="submit" (click)="saveUserData()" style="color: white;">
+            Login </button>         <!--   <a href="/homePage" style="color: white; text-decoration: none;" >  </a> -->
+    </form>
+    <div class="additional-action">
+        <p><a href="/forgetPassword" style="color: white;text-decoration: none;"></a>Forgot password?</p>
+          <p><a href="/register" style="color: white;text-decoration: none;">Create an account </a> </p>   
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
